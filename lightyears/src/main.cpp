@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
+#include "framework/application.h"
 
 int main()
 {
-    sf::RenderWindow renderWindow{sf::VideoMode(100,100), "My Window"};
+    LightYear::Application* app = new LightYear::Application();
+    app->Run();
 }

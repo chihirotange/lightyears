@@ -1,4 +1,10 @@
-add_executable(${LIGHT_YEAR_TARGET} ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
+add_executable(${LIGHT_YEAR_TARGET} 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/application.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/application.cpp
+)
+
+target_include_directories(${LIGHT_YEAR_TARGET} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_link_libraries(${LIGHT_YEAR_TARGET} PUBLIC sfml-graphics)
 target_link_libraries(${LIGHT_YEAR_TARGET} PUBLIC sfml-window)
