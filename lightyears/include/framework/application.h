@@ -10,5 +10,10 @@ namespace LightYear
         void Run();
     private:
         sf::RenderWindow window;
+        float targetFrameRate;
+        sf::Clock tickClock;
+
+        void Tick(float deltaTime);
+        void Render();
     };
 }
