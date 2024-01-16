@@ -4,7 +4,7 @@
 namespace LightYear
 {
     Application::Application()
-        : window{sf::VideoMode(100,100), "Light year"},
+        : window{sf::VideoMode(640,400), "Light year"},
         targetFrameRate{60.f},
         tickClock{}
     {
@@ -29,10 +29,22 @@ namespace LightYear
             if (accumulatedTime > targetDeltatime)
             {
                 accumulatedTime = 0;
-                Tick(targetDeltatime);
-                Render();
+                InternalTick(targetDeltatime);
+                InternalRender();
             }
         }
+    }
+
+    void Application::InternalTick(float deltaTime)
+    {
+        Tick(deltaTime);
+    }
+
+    void Application::InternalRender()
+    {
+        window.clear();
+        Render();
+        window.display();
     }
 
     void Application::Tick(float deltaTime)
