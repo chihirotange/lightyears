@@ -1,4 +1,6 @@
 #include "framework/Application.h"
+#include "framework/Core.h"
+#include <iostream>
 
 namespace AiEngine
 {

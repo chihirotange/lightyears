@@ -3,6 +3,8 @@ add_library(${AI_ENGINE} STATIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Application.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/EntryPoint.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EntryPoint.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Core.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Core.cpp
 )
 
 target_include_directories(${AI_ENGINE} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
