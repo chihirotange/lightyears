@@ -1,7 +1,6 @@
-#include <iostream>
-#include "framework/application.h"
+#include "framework/Application.h"
 
-namespace LightYear
+namespace AiEngine
 {
     Application::Application()
         : window{sf::VideoMode(640,480), "Light year"},
@@ -39,7 +38,7 @@ namespace LightYear
     {
         Tick(deltaTime);
     }
-    
+
     void Application::InternalRender()
     {
         window.clear();

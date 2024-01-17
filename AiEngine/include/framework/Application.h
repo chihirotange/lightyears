@@ -1,12 +1,12 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 
-namespace LightYear
+namespace AiEngine
 {
     class Application
     {
     public:
         Application();
-
         void Run();
         virtual void Tick(float deltaTime);
         virtual void Render();
