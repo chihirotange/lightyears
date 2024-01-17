@@ -23,6 +23,6 @@ function(CopyLibToTarget LIB_NAME TARGET_NAME)
 endfunction()
 
 CopyLibToTarget(sfml-graphics ${AI_ENGINE})
-
+CopyLibToTarget(sfml-window ${AI_ENGINE})
 CopyLibToTarget(sfml-system ${AI_ENGINE})
 CopyLibToTarget(sfml-audio ${AI_ENGINE})
