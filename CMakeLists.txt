@@ -13,6 +13,8 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SFML)
     
-set(LIGHT_YEAR_TARGET LightYearTarget)
+set(AI_ENGINE AiEngine)
+set(LIGHTYEARS_GAME LightYearsGame) 
 
-add_subdirectory(lightyears)
+add_subdirectory(AiEngine)
+add_subdirectory(LightYearsGame)

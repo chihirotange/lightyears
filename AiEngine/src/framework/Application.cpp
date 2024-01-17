@@ -1,10 +1,9 @@
-#include <iostream>
-#include "framework/application.h"
+#include "framework/Application.h"
 
-namespace LightYear
+namespace AiEngine
 {
     Application::Application()
-        : window{sf::VideoMode(640,400), "Light year"},
+        : window{sf::VideoMode(640,480), "Light year"},
         targetFrameRate{60.f},
         tickClock{}
     {
