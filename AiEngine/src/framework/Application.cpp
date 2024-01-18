@@ -27,9 +27,9 @@ namespace AiEngine
             }
             float frameDeltaTime = tickClock.restart().asSeconds();
             accumulatedTime += frameDeltaTime;
-            if (accumulatedTime > targetDeltatime)
+            while (accumulatedTime > targetDeltatime)
             {
-                accumulatedTime = 0;
+                accumulatedTime -= targetDeltatime;
                 InternalTick(targetDeltatime);
                 InternalRender();
             }
