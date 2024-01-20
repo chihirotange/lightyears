@@ -1,13 +1,16 @@
-#include "framework/Application.h"
-#include "framework/Core.h"
 #include <iostream>
+
+#include "framework/Application.h"
+#include "framework/World.h"
+#include "framework/Core.h"
 
 namespace AiEngine
 {
     Application::Application()
         : window{sf::VideoMode(640,480), "Light year"},
         targetFrameRate{60.f},
-        tickClock{}
+        tickClock{},
+        currentWorld{nullptr}
     {
     }
 
@@ -39,6 +42,11 @@ namespace AiEngine
     void Application::InternalTick(float deltaTime)
     {
         Tick(deltaTime);
+        if (currentWorld)
+        {
+            currentWorld->BeginPlayInternal();
+            currentWorld->TickInternal(deltaTime);
+        }
     }
 
     void Application::InternalRender()
