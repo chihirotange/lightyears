@@ -1,9 +1,13 @@
 #include "framework/World.h"
+#include "framework/Core.h"
+#include "framework/Actor.h"
 
 namespace AiEngine
 {
     World::World()
-        : bIsAlreadyBegin {false}
+        : bIsAlreadyBegin {false},
+        allActors{},
+        pendingActors{}
     {
     }
     World::~World()
@@ -11,7 +15,18 @@ namespace AiEngine
     }
     void World::TickInternal(float deltaTime)
     {
+        for (shared<Actor> actor : pendingActors)
+        {
+            allActors.push_back(actor);
+            actor->InternalBeginPlay();
+        }
+        pendingActors.clear();
+
         Tick(deltaTime);
+        for (shared<Actor> actor : allActors)
+        {
+            actor->InternalTick(deltaTime);
+        }
     }
 
     void World::BeginPlayInternal()
@@ -24,8 +39,10 @@ namespace AiEngine
     }
     void World::Tick(float deltaTime)
     {
+        LOG("World ticking");
     }
     void World::BeginPlay()
     {
+        LOG("World begin play");
     }
 }

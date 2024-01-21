@@ -8,7 +8,7 @@ namespace AiEngine
 {
     Application::Application()
         : window{sf::VideoMode(640,480), "Light year"},
-        targetFrameRate{60.f},
+        targetFrameRate{1.f},
         tickClock{},
         currentWorld{nullptr}
     {
