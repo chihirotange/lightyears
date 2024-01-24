@@ -18,14 +18,14 @@ namespace AiEngine
         for (shared<Actor> actor : pendingActors)
         {
             allActors.push_back(actor);
-            actor->InternalBeginPlay();
+            actor->BeginPlay();
         }
         pendingActors.clear();
 
         Tick(deltaTime);
         for (shared<Actor> actor : allActors)
         {
-            actor->InternalTick(deltaTime);
+            actor->Tick(deltaTime);
         }
     }
 

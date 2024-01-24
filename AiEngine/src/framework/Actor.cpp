@@ -8,22 +8,27 @@ namespace AiEngine
     {
     }
 
-    void Actor::InternalTick(float deltaTime)
+    void Actor::Tick(float deltaTime)
     {
-        Tick(deltaTime);
-    }
-
-    void Actor::InternalBeginPlay()
-    {
-        BeginPlay();
+        InternalTick(deltaTime);
     }
 
     void Actor::BeginPlay()
     {
+        if (bIsAlreadyBegin)
+        {
+            return;
+        }
+        InternalBeginPlay();
+        bIsAlreadyBegin = true;
+    }
+
+    void Actor::InternalBeginPlay()
+    {
         LOG("ACTOR BEGIN PLAY");
     }
 
-    void Actor::Tick(float deltaTime)
+    void Actor::InternalTick(float deltaTime)
     {
         LOG("ACTOR TICK");
     }

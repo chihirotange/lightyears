@@ -4,12 +4,12 @@ namespace AiEngine
     {
     public:
         Actor();
-        void InternalTick(float deltaTime);
-        void InternalBeginPlay();
+        void Tick(float deltaTime);
+        void BeginPlay();
 
     protected:
-        virtual void Tick(float deltaTime);
-        virtual void BeginPlay();
+        virtual void InternalTick(float deltaTime);
+        virtual void InternalBeginPlay();
 
     private:
         bool bIsAlreadyBegin; 
