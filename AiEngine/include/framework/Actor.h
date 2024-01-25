@@ -1,6 +1,7 @@
+#include "framework/Object.h"
 namespace AiEngine
 {
-    class Actor
+    class Actor : public Object
     {
     public:
         Actor();

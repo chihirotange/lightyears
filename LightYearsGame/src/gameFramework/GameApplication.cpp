@@ -13,6 +13,6 @@ namespace LightYear
     GameApplication::GameApplication()
     {
         weak<AiEngine::World> newWorld = LoadWorld<AiEngine::World>();
-        newWorld.lock()->SpawnActor<AiEngine::Actor>();
+        weak<AiEngine::Actor> actor = newWorld.lock()->SpawnActor<AiEngine::Actor>();
     }
 }

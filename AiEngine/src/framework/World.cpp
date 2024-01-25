@@ -23,9 +23,18 @@ namespace AiEngine
         pendingActors.clear();
 
         Tick(deltaTime);
-        for (shared<Actor> actor : allActors)
+        for (auto iter = allActors.begin(); iter != allActors.end(); )
         {
-            actor->Tick(deltaTime);
+            Actor* actor = iter->get(); 
+            if (actor->IsPendingDestroy())
+            {
+                iter = allActors.erase(iter);
+            }
+            else
+            {
+                actor->Tick(deltaTime);
+                ++iter;
+            }
         }
     }
 
