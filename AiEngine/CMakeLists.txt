@@ -16,6 +16,9 @@ add_library(${AI_ENGINE} STATIC
 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Object.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Object.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Component.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Component.cpp
 )
 
 target_include_directories(${AI_ENGINE} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
