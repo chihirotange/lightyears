@@ -36,6 +36,11 @@ namespace AiEngine
                 ++iter;
             }
         }
+
+        for (auto actor : allActors)
+        {
+            actor->Render();
+        }
     }
 
     void World::BeginPlayInternal()

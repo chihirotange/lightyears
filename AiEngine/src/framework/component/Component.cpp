@@ -1,4 +1,4 @@
-#include "framework/Component.h"
+#include "framework/component/Component.h"
 #include "framework/Core.h"
 #include "framework/Actor.h"
 

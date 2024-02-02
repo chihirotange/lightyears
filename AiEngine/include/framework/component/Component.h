@@ -5,17 +5,19 @@
 namespace AiEngine
 {
     class Actor;
+
+    //@TODO make this abstract
     class Component : public Object 
     {
     public:
         Component(Actor* Owner);
-        void Tick(float deltaTime);
-        void Render();
-        void BeginPlay();
+        virtual void Tick(float deltaTime);
+        virtual void Render();
+        virtual void BeginPlay();
 
-        ~Component();
+        virtual ~Component();
 
-    private:
+    protected:
         Actor* owner;
     };
 } // namespace AiEngine

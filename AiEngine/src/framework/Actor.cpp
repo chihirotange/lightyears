@@ -49,6 +49,7 @@ namespace AiEngine
 
     void Actor::InternalRender()
     {
+        LOG("ACTOR RENDER");
         for (auto component : allComponents)
         {
             component->Render();
