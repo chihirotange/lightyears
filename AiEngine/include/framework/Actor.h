@@ -1,8 +1,10 @@
+#pragma once
 #include "framework/Core.h"
 #include "framework/Object.h"
 #include "framework/component/Component.h"
 namespace AiEngine
 {
+    // class Component;
     class Actor : public Object
     {
     public:
@@ -10,6 +12,9 @@ namespace AiEngine
         void Tick(float deltaTime);
         void BeginPlay();
         void Render();
+
+        template<class Component>
+        weak<Component> CreateComponent();
 
     protected:
         virtual void InternalBeginPlay();
@@ -21,4 +26,12 @@ namespace AiEngine
         List<shared<Component>> pendingComponents;
         List<shared<Component>> allComponents;
     };
+
+    template<class Component>
+    weak<Component> Actor::CreateComponent()
+    {
+        shared<Component> newComponent{new Component{this}};
+        pendingComponents.push_back(newComponent);
+        return newComponent;
+    }
 }

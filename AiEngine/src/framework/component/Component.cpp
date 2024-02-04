@@ -9,6 +9,10 @@ namespace AiEngine
     {
     }
 
+    Component::~Component()
+    {
+    }
+
     void Component::BeginPlay()
     {
         LOG("Component begin play");

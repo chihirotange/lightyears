@@ -10,8 +10,8 @@ namespace AiEngine
         void BeginPlayInternal();
         virtual ~World();
 
-        template <typename ActorType>
-        weak<ActorType> SpawnActor();        
+        template <class Actor>
+        weak<Actor> SpawnActor();        
 
         void Tick(float deltaTime);
         void BeginPlay();
@@ -23,10 +23,10 @@ namespace AiEngine
         List<shared<Actor>> pendingActors;
     };
 
-    template <typename ActorType>
-    weak<ActorType> World::SpawnActor()        
+    template <class Actor>
+    weak<Actor> World::SpawnActor()        
     {
-        shared<ActorType> newActor {new ActorType{}};
+        shared<Actor> newActor {new Actor{}};
         pendingActors.push_back(newActor);
         return newActor;
     }

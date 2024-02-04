@@ -3,6 +3,8 @@
 #include "framework/World.h"
 #include "framework/Actor.h"
 
+#include "framework/component/SpriteRendererComponent.h"
+
 AiEngine::Application* GetApplication()
 {
     return new LightYear::GameApplication{};
@@ -14,5 +16,6 @@ namespace LightYear
     {
         weak<AiEngine::World> newWorld = LoadWorld<AiEngine::World>();
         weak<AiEngine::Actor> actor = newWorld.lock()->SpawnActor<AiEngine::Actor>();
+        actor.lock()->CreateComponent<AiEngine::SpriteRendererComponent>();
     }
 }

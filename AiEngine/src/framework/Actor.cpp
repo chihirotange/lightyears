@@ -1,4 +1,5 @@
 #include "framework/Actor.h"
+#include "framework/component/Component.h"
 #include "framework/Core.h"
 
 namespace AiEngine

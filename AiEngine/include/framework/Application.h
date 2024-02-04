@@ -13,8 +13,8 @@ namespace AiEngine
         void Run();
         virtual void Tick(float deltaTime);
         virtual void Render();
-        template<typename WorldType>        
-        weak<WorldType> LoadWorld();
+        template<class World>        
+        weak<World> LoadWorld();
 
     private:
         sf::RenderWindow window;
@@ -25,10 +25,10 @@ namespace AiEngine
         shared<World> currentWorld;
     };
 
-    template<typename WorldType>
-    weak<WorldType> Application::LoadWorld()
+    template<class World>
+    weak<World> Application::LoadWorld()
     {
-        shared<WorldType> newWorld{new WorldType{}};
+        shared<World> newWorld{new World{}};
         currentWorld = newWorld;
         return newWorld;
     }
