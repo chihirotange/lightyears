@@ -15,16 +15,13 @@ namespace AiEngine
 
     void Component::BeginPlay()
     {
-        LOG("Component begin play");
     }
 
     void Component::Tick(float deltaTime)
     {
-        LOG("component tick");
     }
 
     void Component::Render()
     {
-        LOG("component render");
     }
 }

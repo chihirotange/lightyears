@@ -1,5 +1,6 @@
 #include "framework/Actor.h"
 #include "framework/component/Component.h"
+#include <iostream>
 #include "framework/Core.h"
 
 namespace AiEngine
@@ -7,6 +8,11 @@ namespace AiEngine
     Actor::Actor()
         : bIsAlreadyBegin {false}
     {
+    }
+
+    Actor::~Actor()
+    {
+        LOG("Actor destroyed");
     }
 
     void Actor::BeginPlay()
@@ -31,20 +37,30 @@ namespace AiEngine
 
     void Actor::InternalBeginPlay()
     {
+        LOG("ACTOR BEGIN PLAY");
         for (auto component : pendingComponents)
         {
             allComponents.push_back(component);
             component->BeginPlay();
         }
-        LOG("ACTOR BEGIN PLAY");
+        pendingComponents.clear();
     }
 
     void Actor::InternalTick(float deltaTime)
     {
         LOG("ACTOR TICK");
-        for (auto component : allComponents)
+        for (auto iter = allComponents.begin(); iter != allComponents.end();)
         {
-            component->Tick(deltaTime);
+            Component* component = iter->get();
+            if (component->IsPendingDestroy())
+            {
+                iter = allComponents.erase(iter);
+            }
+            else
+            {
+                component->Tick(deltaTime);
+                ++iter;
+            }
         }
     }
 

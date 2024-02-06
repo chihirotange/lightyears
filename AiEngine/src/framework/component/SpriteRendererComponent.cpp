@@ -10,6 +10,7 @@ namespace AiEngine
     }
     SpriteRendererComponent::~SpriteRendererComponent()
     {
+        LOG("SPRITE RENDERER DESTROYED");
     }
     void SpriteRendererComponent::BeginPlay()
     {

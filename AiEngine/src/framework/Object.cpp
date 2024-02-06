@@ -10,7 +10,6 @@ namespace AiEngine
 
     Object::~Object()
     {
-        LOG("called object destructor");
     }
 
     void Object::Destroy()

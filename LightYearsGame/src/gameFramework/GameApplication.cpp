@@ -16,6 +16,7 @@ namespace LightYear
     {
         weak<AiEngine::World> newWorld = LoadWorld<AiEngine::World>();
         weak<AiEngine::Actor> actor = newWorld.lock()->SpawnActor<AiEngine::Actor>();
-        actor.lock()->CreateComponent<AiEngine::SpriteRendererComponent>();
+        weak<AiEngine::SpriteRendererComponent> component = actor.lock()->CreateComponent<AiEngine::SpriteRendererComponent>();
+        component.lock()->Destroy();
     }
 }

@@ -12,6 +12,7 @@ namespace AiEngine
         void Tick(float deltaTime);
         void BeginPlay();
         void Render();
+        virtual ~Actor();
 
         template<class Component>
         weak<Component> CreateComponent();

@@ -12,6 +12,7 @@ namespace AiEngine
     }
     World::~World()
     {
+        LOG("World destroyed");
     }
     void World::TickInternal(float deltaTime)
     {
