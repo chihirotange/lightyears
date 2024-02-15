@@ -20,8 +20,6 @@ namespace AiEngine
         sf::RenderWindow window;
         float targetFrameRate;
         sf::Clock tickClock;
-        void InternalTick(float deltaTime);
-        void InternalRender();
         shared<World> currentWorld;
     };
 

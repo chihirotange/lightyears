@@ -18,11 +18,6 @@ namespace AiEngine
         template<class Component>
         weak<Component> CreateComponent();
 
-    protected:
-        virtual void InternalBeginPlay();
-        virtual void InternalTick(float deltaTime);
-        virtual void InternalRender(sf::RenderWindow &renderWindow);
-
     private:
         bool bIsAlreadyBegin; 
         List<shared<Component>> pendingComponents;

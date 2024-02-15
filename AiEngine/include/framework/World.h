@@ -7,13 +7,9 @@ namespace AiEngine
     {
     public:
         World();
-        void TickInternal(float deltaTime);
-        void BeginPlayInternal();
         virtual ~World();
-
         template <class Actor>
         weak<Actor> SpawnActor();        
-
         void Tick(float deltaTime);
         void Render(sf::RenderWindow &renderWindow);
         void BeginPlay();

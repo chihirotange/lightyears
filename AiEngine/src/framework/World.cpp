@@ -14,7 +14,8 @@ namespace AiEngine
     {
         LOG("World destroyed");
     }
-    void World::TickInternal(float deltaTime)
+
+    void World::Tick(float deltaTime)
     {
         for (shared<Actor> actor : pendingActors)
         {
@@ -23,7 +24,6 @@ namespace AiEngine
         }
         pendingActors.clear();
 
-        Tick(deltaTime);
         for (auto iter = allActors.begin(); iter != allActors.end(); )
         {
             Actor* actor = iter->get(); 
@@ -39,19 +39,6 @@ namespace AiEngine
         }
     }
 
-    void World::BeginPlayInternal()
-    {
-        if (!bIsAlreadyBegin)
-        {
-            BeginPlay();
-            bIsAlreadyBegin = true;
-        }
-    }
-    void World::Tick(float deltaTime)
-    {
-        LOG("World ticking");
-    }
-
     void World::Render(sf::RenderWindow &renderWindow)
     {
         for (auto actor : allActors)
@@ -62,5 +49,9 @@ namespace AiEngine
     void World::BeginPlay()
     {
         LOG("World begin play");
+        if (!bIsAlreadyBegin)
+        {
+            bIsAlreadyBegin = true;
+        }
     }
 }

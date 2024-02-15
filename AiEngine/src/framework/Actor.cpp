@@ -22,26 +22,10 @@ namespace AiEngine
         {
             return;
         }
-        InternalBeginPlay();
         bIsAlreadyBegin = true;
     }
 
     void Actor::Tick(float deltaTime)
-    {
-        InternalTick(deltaTime);
-    }
-
-    void Actor::Render(sf::RenderWindow &renderWindow)
-    {
-        InternalRender(renderWindow);
-    }
-
-    void Actor::InternalBeginPlay()
-    {
-        LOG("ACTOR BEGIN PLAY");
-    }
-
-    void Actor::InternalTick(float deltaTime)
     {
         LOG("ACTOR TICK");
         for (auto component : pendingComponents)
@@ -65,9 +49,8 @@ namespace AiEngine
         }
     }
 
-    void Actor::InternalRender(sf::RenderWindow &renderWindow)
+    void Actor::Render(sf::RenderWindow &renderWindow)
     {
-        LOG("ACTOR RENDER");
         for (auto component : allComponents)
         {
             component->Render(renderWindow);

@@ -33,35 +33,25 @@ namespace AiEngine
             while (accumulatedTime > targetDeltatime)
             {
                 accumulatedTime -= targetDeltatime;
-                InternalTick(targetDeltatime);
-                InternalRender();
+                Tick(targetDeltatime);
+                Render();
             }
         }
     }
 
-    void Application::InternalTick(float deltaTime)
-    {
-        Tick(deltaTime);
-        if (currentWorld)
-        {
-            currentWorld->BeginPlayInternal();
-            currentWorld->TickInternal(deltaTime);
-            currentWorld->Render(window);
-        }
-    }
-
-    void Application::InternalRender()
-    {
-        window.clear();
-        Render();
-        window.display();
-    }
-
     void Application::Tick(float deltaTime)
     {
+        if (currentWorld)
+        {
+            currentWorld->BeginPlay();
+            currentWorld->Tick(deltaTime);
+        }
     }
 
     void Application::Render()
     {
+        window.clear();
+        currentWorld->Render(window);
+        window.display();
     }
 }
