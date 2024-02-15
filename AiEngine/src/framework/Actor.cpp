@@ -1,3 +1,4 @@
+#include "SFML/Graphics.hpp"
 #include "framework/Actor.h"
 #include "framework/component/Component.h"
 #include <iostream>
@@ -30,9 +31,9 @@ namespace AiEngine
         InternalTick(deltaTime);
     }
 
-    void Actor::Render()
+    void Actor::Render(const sf::RenderWindow &renderWindow)
     {
-        InternalRender();
+        InternalRender(renderWindow);
     }
 
     void Actor::InternalBeginPlay()
@@ -64,12 +65,12 @@ namespace AiEngine
         }
     }
 
-    void Actor::InternalRender()
+    void Actor::InternalRender(const sf::RenderWindow &renderWindow)
     {
         LOG("ACTOR RENDER");
         for (auto component : allComponents)
         {
-            component->Render();
+            component->Render(renderWindow);
         }
     }
 }

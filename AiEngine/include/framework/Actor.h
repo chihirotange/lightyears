@@ -1,4 +1,5 @@
 #pragma once
+#include "SFML/Graphics.hpp"
 #include "framework/Core.h"
 #include "framework/Object.h"
 #include "framework/component/Component.h"
@@ -11,7 +12,7 @@ namespace AiEngine
         Actor();
         void Tick(float deltaTime);
         void BeginPlay();
-        void Render();
+        void Render(const sf::RenderWindow &renderWindow);
         virtual ~Actor();
 
         template<class Component>
@@ -20,7 +21,7 @@ namespace AiEngine
     protected:
         virtual void InternalBeginPlay();
         virtual void InternalTick(float deltaTime);
-        virtual void InternalRender();
+        virtual void InternalRender(const sf::RenderWindow &renderWindow);
 
     private:
         bool bIsAlreadyBegin; 

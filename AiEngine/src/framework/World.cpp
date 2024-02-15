@@ -37,11 +37,6 @@ namespace AiEngine
                 ++iter;
             }
         }
-
-        for (auto actor : allActors)
-        {
-            actor->Render();
-        }
     }
 
     void World::BeginPlayInternal()
@@ -55,6 +50,14 @@ namespace AiEngine
     void World::Tick(float deltaTime)
     {
         LOG("World ticking");
+    }
+
+    void World::Render(const sf::RenderWindow &renderWindow)
+    {
+        for (auto actor : allActors)
+        {
+            actor->Render(renderWindow);
+        }
     }
     void World::BeginPlay()
     {

@@ -8,5 +8,6 @@ namespace AiEngine
         SpriteRendererComponent(Actor* Owner);
         ~SpriteRendererComponent();
         void BeginPlay() override;
+        void Render(const sf::RenderWindow &renderWindows) override;
     };
 }

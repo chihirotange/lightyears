@@ -1,3 +1,4 @@
+#include "SFML/Graphics.hpp"
 #include "framework/component/Component.h"
 #include "framework/Core.h"
 #include "framework/Actor.h"
@@ -21,7 +22,7 @@ namespace AiEngine
     {
     }
 
-    void Component::Render()
+    void Component::Render(const sf::RenderWindow &renderWindow)
     {
     }
 }

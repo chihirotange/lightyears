@@ -1,4 +1,5 @@
 #include "framework/Core.h"
+#include "SFML/Graphics.hpp"
 namespace AiEngine
 {
     class Actor;
@@ -14,6 +15,7 @@ namespace AiEngine
         weak<Actor> SpawnActor();        
 
         void Tick(float deltaTime);
+        void Render(const sf::RenderWindow &renderWindow);
         void BeginPlay();
 
     private:
