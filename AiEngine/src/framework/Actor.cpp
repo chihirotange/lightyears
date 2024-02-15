@@ -31,7 +31,7 @@ namespace AiEngine
         InternalTick(deltaTime);
     }
 
-    void Actor::Render(const sf::RenderWindow &renderWindow)
+    void Actor::Render(sf::RenderWindow &renderWindow)
     {
         InternalRender(renderWindow);
     }
@@ -39,17 +39,17 @@ namespace AiEngine
     void Actor::InternalBeginPlay()
     {
         LOG("ACTOR BEGIN PLAY");
+    }
+
+    void Actor::InternalTick(float deltaTime)
+    {
+        LOG("ACTOR TICK");
         for (auto component : pendingComponents)
         {
             allComponents.push_back(component);
             component->BeginPlay();
         }
         pendingComponents.clear();
-    }
-
-    void Actor::InternalTick(float deltaTime)
-    {
-        LOG("ACTOR TICK");
         for (auto iter = allComponents.begin(); iter != allComponents.end();)
         {
             Component* component = iter->get();
@@ -65,7 +65,7 @@ namespace AiEngine
         }
     }
 
-    void Actor::InternalRender(const sf::RenderWindow &renderWindow)
+    void Actor::InternalRender(sf::RenderWindow &renderWindow)
     {
         LOG("ACTOR RENDER");
         for (auto component : allComponents)

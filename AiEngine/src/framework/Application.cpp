@@ -46,6 +46,7 @@ namespace AiEngine
         {
             currentWorld->BeginPlayInternal();
             currentWorld->TickInternal(deltaTime);
+            currentWorld->Render(window);
         }
     }
 

@@ -52,7 +52,7 @@ namespace AiEngine
         LOG("World ticking");
     }
 
-    void World::Render(const sf::RenderWindow &renderWindow)
+    void World::Render(sf::RenderWindow &renderWindow)
     {
         for (auto actor : allActors)
         {

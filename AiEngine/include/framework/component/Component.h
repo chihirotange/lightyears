@@ -13,7 +13,7 @@ namespace AiEngine
     public:
         Component(Actor* Owner);
         virtual void Tick(float deltaTime);
-        virtual void Render(const sf::RenderWindow &renderWindow);
+        virtual void Render(sf::RenderWindow &renderWindow);
         virtual void BeginPlay();
 
         virtual ~Component();

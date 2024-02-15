@@ -12,7 +12,7 @@ namespace AiEngine
         Actor();
         void Tick(float deltaTime);
         void BeginPlay();
-        void Render(const sf::RenderWindow &renderWindow);
+        void Render(sf::RenderWindow &renderWindow);
         virtual ~Actor();
 
         template<class Component>
@@ -21,7 +21,7 @@ namespace AiEngine
     protected:
         virtual void InternalBeginPlay();
         virtual void InternalTick(float deltaTime);
-        virtual void InternalRender(const sf::RenderWindow &renderWindow);
+        virtual void InternalRender(sf::RenderWindow &renderWindow);
 
     private:
         bool bIsAlreadyBegin; 

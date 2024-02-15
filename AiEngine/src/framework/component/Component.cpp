@@ -22,7 +22,7 @@ namespace AiEngine
     {
     }
 
-    void Component::Render(const sf::RenderWindow &renderWindow)
+    void Component::Render(sf::RenderWindow &renderWindow)
     {
     }
 }

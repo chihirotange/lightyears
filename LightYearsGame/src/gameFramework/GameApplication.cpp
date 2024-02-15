@@ -17,6 +17,6 @@ namespace LightYear
         weak<AiEngine::World> newWorld = LoadWorld<AiEngine::World>();
         weak<AiEngine::Actor> actor = newWorld.lock()->SpawnActor<AiEngine::Actor>();
         weak<AiEngine::SpriteRendererComponent> component = actor.lock()->CreateComponent<AiEngine::SpriteRendererComponent>();
-        component.lock()->Destroy();
+        component.lock()->SetTexture("D:/Downloads/assets/assets/SpaceShooterRedux/PNG/playerShip1_blue.png");
     }
 }

@@ -8,6 +8,12 @@ namespace AiEngine
         SpriteRendererComponent(Actor* Owner);
         ~SpriteRendererComponent();
         void BeginPlay() override;
-        void Render(const sf::RenderWindow &renderWindows) override;
+        void Render(sf::RenderWindow &renderWindows) override;
+
+        bool SetTexture(const std::string &texturePath);
+
+    private:
+        sf::Sprite sprite;
+        sf::Texture texture;
     };
 }
