@@ -17,3 +17,19 @@ function(CopyDirToTarget LIB_NAME TARGET_NAME)
 endfunction()
 
 CopyDirToTarget(${AI_ENGINE} ${LIGHTYEARS_GAME})
+
+set(RESOURCE_FOLDER_NAME "assets")
+set(RESOURCE_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/${RESOURCE_FOLDER_NAME}")
+
+add_custom_command(
+    TARGET ${LIGHTYEARS_GAME}
+    POST_BUILD
+    COMMAND
+    ${CMAKE_COMMAND} -E copy_directory
+    ${RESOURCE_SRC_DIR}
+    $<TARGET_FILE_DIR:${LIGHTYEARS_GAME}>/${RESOURCE_FOLDER_NAME}
+)
+
+configure_file(
+    "config.h"
+)
